@@ -1,5 +1,6 @@
 #![allow(incomplete_features)]
-#![feature(const_generics)]
+ #![feature(adt_const_params, generic_const_exprs)]
+// #![feature(const_generics)]
 
 use solitaire::{
     solitaire,
