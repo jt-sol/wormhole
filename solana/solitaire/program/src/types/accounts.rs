@@ -33,6 +33,7 @@ pub enum AccountState {
     Initialized,
     Uninitialized,
     MaybeInitialized,
+    InitializedMaybeLonger, // Initialized, but might be longer than otherwise expected
 }
 
 /// An account that is known to contain serialized data.

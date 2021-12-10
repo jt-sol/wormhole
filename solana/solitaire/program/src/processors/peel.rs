@@ -13,6 +13,7 @@ use solana_program::{
         Sysvar as SolanaSysvar,
         SysvarId,
     },
+    borsh::try_from_slice_unchecked,
 };
 use std::marker::PhantomData;
 
@@ -213,6 +214,9 @@ impl<
                 } else {
                     (true, T::try_from_slice(&mut *ctx.info().data.borrow_mut())?)
                 }
+            }
+            AccountState::InitializedMaybeLonger => {
+                (true, try_from_slice_unchecked(&mut *ctx.info().data.borrow_mut())?)
             }
         };
 
